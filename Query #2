@@ -1,0 +1,27 @@
+with top_10 as(
+SELECT city, SUM(Freq) AS Top10_Num_Orders FROM (
+SELECT city, UniqueIdPerCity,
+SUM(amount) as Amount, 
+COUNT(order_id) as Freq, 
+SUM(amount) / COUNT(order_id) AS Basket, 
+ROW_NUMBER() OVER (PARTITION BY city ORDER BY SUM(amount) / COUNT(order_id) desc, UniqueIdPerCity desc) Top_10
+FROM (SELECT *, CONCAT(city,"_",user_id) AS UniqueIdPerCity FROM`efood-354312.main_assessment.orders`)
+GROUP BY city, UniqueIdPerCity
+ORDER BY city, basket desc)
+
+
+WHERE Top_10 <=10
+
+GROUP BY city
+ORDER BY city desc),
+
+total as (
+
+SELECT city, COUNT(order_id) AS Total_Num_Orders
+from `efood-354312.main_assessment.orders`
+GROUP BY city
+)
+SELECT top_10.city, top_10.Top10_Num_Orders/total.Total_Num_Orders AS Per_Orders_Top10
+FROM top_10
+left join total on top_10.city=total.city
+Order by city
