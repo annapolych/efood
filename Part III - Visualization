@@ -3,7 +3,7 @@
 Overall Performance
 1. Labels should be added for Jokers
 2. Change the similar hues of the blue color to different colors for the Online Payment Share,
-   Mobile Share percentages and Order Failure Rate on the second graph so they can be easily readable.
+   Mobile Share percentages and Order Failure Rate on the second graph so they can be easily readable.
 3. Switch lines to bars for the basket as it is in the graph on the top.
 4. Cuisine parent should be added as the dynamic title.
 5. Scorecards should also have a comparison indication versus last year.
@@ -12,11 +12,11 @@ Overall Performance
 Performance Geo
 1. Jokers are missing
 2. Poli=null, it should exist in the data and should be investigated.
-3. All metrics that appears on the Overall Performance report should be 
-  also included in Performance GEO reports: Orders, Average Basket, Mobile Share, Order Failure, Acquisition, Jokers, Jokers Share
+3. All metrics that appear on the Overall Performance report should be 
+  also included in Performance GEO reports: Orders, Average Basket, Mobile Share, Order Failure, Acquisition, Jokers, Jokers Share
 
 
-In addition, the revenue missing from the two reports, it should be included.
+In addition, the revenue missing from the two reports should be included.
 
 
 
@@ -30,11 +30,9 @@ The basket is a bit bigger during holidays 1-2 and 6th Jan. Probably the orders 
 Also, the number of orders is much less these days vs the rest of the weekdays which is expected since people have family dinners or visit restaurants these days. 
 
 Performance Geo
-The basket looks to get smaller in comparison to the previous period except for Potlemaida and Korintho 
-while the number of orders is increased for Athens, Thessaloniki, Rhodes, Volos, Kozani, which means that 
+The basket looks to get smaller in comparison to the previous period except for Potlemaida and Korinthos 
+while the number of orders is increased for Athens, Thessaloniki, Rhodes, Volos, and Kozani, which means that 
 small amount orders are increased more than other orders. 
 Small orders could be related to Breakfast cuisine which includes coffee and savories. Maybe that is why Marketing is focusing on Breakfast loyalty.
-Finalyy, Kozani looks like needs to be further investigated due to 68.8% orders increase vs last year (I  assume the comparison is to last year)
+Finally, Kozani looks like needs to be further investigated due to a 68.8% orders increase vs last year (I  assume the comparison is to last year)
 while the avg basket is decreased by -8.96%.
-
-
