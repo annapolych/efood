@@ -1,10 +1,13 @@
-SELECT city, COUNT(breakfast_amount) AS BO,
+SELECT city, COUNT(breakfast_amount) AS breakfast_orders, COUNT(order_id) AS efood_orders,
 SUM(breakfast_amount)/ COUNT(breakfast_amount) AS breakfast_basket,
 SUM(amount)/ COUNT(amount) AS efood_basket,
 COUNT(breakfast_amount)/ COUNT(DISTINCT breakfast_userid) AS breakfast_freq,
 COUNT(order_id) / COUNT(DISTINCT UniqueIdPerCity) AS efood_freq,
 COUNT(DISTINCT breakfast_3freq) / COUNT( DISTINCT breakfast_userid) AS breakfast_users3freq_per,
-COUNT(DISTINCT efood_3freq) / COUNT( DISTINCT UniqueIdPerCity) AS efood_users3freq_per
+COUNT(DISTINCT efood_3freq) / COUNT( DISTINCT UniqueIdPerCity) AS efood_users3freq_per, 
+SUM(amount)/ COUNT(amount) - SUM(breakfast_amount)/ COUNT(breakfast_amount) AS D_Basket,
+COUNT(order_id) / COUNT(DISTINCT UniqueIdPerCity) - COUNT(breakfast_amount)/ COUNT(DISTINCT breakfast_userid) AS D_Freq,
+(COUNT(DISTINCT efood_3freq) / COUNT( DISTINCT UniqueIdPerCity)) - (COUNT(DISTINCT breakfast_3freq) / COUNT( DISTINCT breakfast_userid)) AS Per_3FreThe 
 
 FROM 
     (
@@ -18,9 +21,6 @@ FROM(
     CASE when cuisine like "%Breakfast%" THEN UniqueIdPerCity else null end AS breakfast_userid,
     ROW_NUMBER() OVER (PARTITION BY UniqueIdPerCity ORDER BY city, UniqueIdPerCity) freq,
     CASE WHEN ROW_NUMBER() OVER (PARTITION BY UniqueIdPerCity ORDER BY city,UniqueIdPerCity) >3 THEN UniqueIdPerCity ELSE null END AS efood_3freq,
-    #ROW_NUMBER() OVER (PARTITION BY (CASE when cuisine like "%Breakfast%" THEN user_id else null end ) ORDER BY city) freq_breakfast,
-    #CASE WHEN ROW_NUMBER() OVER (PARTITION BY breakfast_userid ORDER BY city,user_id) >3 THEN user_id ELSE null END AS breakfast_3freq,
-
 
     FROM (SELECT *, CONCAT(city,"_",user_id) AS UniqueIdPerCity FROM`efood-354312.main_assessment.orders`)
     WHERE city in (
@@ -28,11 +28,8 @@ FROM(
       FROM `efood-354312.main_assessment.orders` 
       GROUP BY city
       HAVING COUNT(order_id) >= 1000 ) 
-    #ORDER BY freq_breakfast  
     )
-   # where freq>3
     ORDER BY UniqueIdPerCity,freq, freq_breakfast  
-
     )   
 GROUP BY city
-ORDER BY BO DESC LIMIT 5
+ORDER BY breakfast_orders DESC LIMIT 5
