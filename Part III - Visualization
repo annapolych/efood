@@ -1,25 +1,40 @@
 - Write your comments about the existing layout and suggest improvements.
 
-overall performance
-Labels kai sto Jokers
-change the colors for the 3 percentages on the second graph kai allagh you line for the basket to bars as the graph on the top
+Overall Performance
+1. Labels should be added for Jokers
+2. Change the similar hues of the blue color to different colors for the Online Payment Share,
+   Mobile Share percentages and Order Failure Rate on the second graph so they can be easily readable.
+3. Switch lines to bars for the basket as it is in the graph on the top.
+4. Cuisine parent should be added as the dynamic title.
+5. Scorecards should also have a comparison indication versus last year.
 
 
-performance geo
-jokers are missing
-Poli=null what is the meaning of that?
+Performance Geo
+1. Jokers are missing
+2. Poli=null, it should exist in the data and should be investigated.
+3. All metrics that appears on the Overall Performance report should be 
+  also included in Performance GEO reports: Orders, Average Basket, Mobile Share, Order Failure, Acquisition, Jokers, Jokers Share
 
+
+In addition, the revenue missing from the two reports, it should be included.
 
 
 
 - What is the outcome you gained from these slides?
-The first week of the year 5632 ordes took place for the chosen Cuisine parent which is not visible.
-The avr basket is at 14.64 euros around 60% of the cusotomers paid onlinea and around 86 customers used their mobile to place the order.
-THe order failue is small during the week.
 
-Basket is a bit bigger during holidays 1,2 and 6th Jan. Probably the orders do not include breakfast and coffes with small amount since people are not at work.
-ALos, the number of orders are musch less these days
+In the first week of the year, 5632 orders took place for the chosen Cuisine parent which is not visible.
+The avr basket is at 14.64 euros, around 60% of the customers paid online and around 86% of the customers used their mobile to place the order.
+The order failure is small and relatively steady during the week.
+
+The basket is a bit bigger during holidays 1-2 and 6th Jan. Probably the orders do not include breakfast and coffee with small amount since people are not at work.
+Also, the number of orders is much less these days vs the rest of the weekdays which is expected since people have family dinners or visit restaurants these days. 
+
+Performance Geo
+The basket looks to get smaller in comparison to the previous period except for Potlemaida and Korintho 
+while the number of orders is increased for Athens, Thessaloniki, Rhodes, Volos, Kozani, which means that 
+small amount orders are increased more than other orders. 
+Small orders could be related to Breakfast cuisine which includes coffee and savories. Maybe that is why Marketing is focusing on Breakfast loyalty.
+Finalyy, Kozani looks like needs to be further investigated due to 68.8% orders increase vs last year (I  assume the comparison is to last year)
+while the avg basket is decreased by -8.96%.
 
 
-Basket looks to getting worse in comparsion to previous period except for Potlemaida and Korintho while number of orders are increased fro Athens, Thess, rodos, Volos, Kozani,which 
-means that small amount orders are increased more than other cuiuins, such as coffes and breakfast.
