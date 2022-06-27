@@ -7,29 +7,29 @@ COUNT(DISTINCT breakfast_3freq) / COUNT( DISTINCT breakfast_userid) AS breakfast
 COUNT(DISTINCT efood_3freq) / COUNT( DISTINCT UniqueIdPerCity) AS efood_users3freq_per, 
 SUM(amount)/ COUNT(amount) - SUM(breakfast_amount)/ COUNT(breakfast_amount) AS D_Basket,
 COUNT(order_id) / COUNT(DISTINCT UniqueIdPerCity) - COUNT(breakfast_amount)/ COUNT(DISTINCT breakfast_userid) AS D_Freq,
-(COUNT(DISTINCT efood_3freq) / COUNT( DISTINCT UniqueIdPerCity)) - (COUNT(DISTINCT breakfast_3freq) / COUNT( DISTINCT breakfast_userid)) AS Per_3FreThe 
+(COUNT(DISTINCT efood_3freq) / COUNT( DISTINCT UniqueIdPerCity)) - (COUNT(DISTINCT breakfast_3freq) / COUNT( DISTINCT breakfast_userid)) AS D_Per_3Fre 
 
 FROM 
     (
 
-SELECT *,    
-CASE WHEN breakfast_userid IS NOT NULL THEN ROW_NUMBER() OVER (PARTITION BY breakfast_userid ORDER BY city,breakfast_userid) ELSE null END AS freq_breakfast,
-CASE WHEN ROW_NUMBER() OVER (PARTITION BY breakfast_userid ORDER BY city,breakfast_userid) >3 THEN breakfast_userid ELSE null END AS breakfast_3freq,
-FROM(
-  SELECT *,
-    CASE when cuisine like "%Breakfast%" THEN amount else null end AS breakfast_amount,
-    CASE when cuisine like "%Breakfast%" THEN UniqueIdPerCity else null end AS breakfast_userid,
-    ROW_NUMBER() OVER (PARTITION BY UniqueIdPerCity ORDER BY city, UniqueIdPerCity) freq,
-    CASE WHEN ROW_NUMBER() OVER (PARTITION BY UniqueIdPerCity ORDER BY city,UniqueIdPerCity) >3 THEN UniqueIdPerCity ELSE null END AS efood_3freq,
+    SELECT *,    
+    CASE WHEN breakfast_userid IS NOT NULL THEN ROW_NUMBER() OVER (PARTITION BY breakfast_userid ORDER BY city,breakfast_userid) ELSE null END AS freq_breakfast,
+    CASE WHEN ROW_NUMBER() OVER (PARTITION BY breakfast_userid ORDER BY city,breakfast_userid) >3 THEN breakfast_userid ELSE null END AS breakfast_3freq,
+    FROM(
+          SELECT *,
+            CASE when cuisine like "%Breakfast%" THEN amount else null end AS breakfast_amount,
+            CASE when cuisine like "%Breakfast%" THEN UniqueIdPerCity else null end AS breakfast_userid,
+            ROW_NUMBER() OVER (PARTITION BY UniqueIdPerCity ORDER BY city, UniqueIdPerCity) freq,
+            CASE WHEN ROW_NUMBER() OVER (PARTITION BY UniqueIdPerCity ORDER BY city,UniqueIdPerCity) >3 THEN UniqueIdPerCity ELSE null END AS efood_3freq,
 
-    FROM (SELECT *, CONCAT(city,"_",user_id) AS UniqueIdPerCity FROM`efood-354312.main_assessment.orders`)
-    WHERE city in (
-      SELECT city#, COUNT(order_timestamp)
-      FROM `efood-354312.main_assessment.orders` 
-      GROUP BY city
-      HAVING COUNT(order_id) >= 1000 ) 
-    )
-    ORDER BY UniqueIdPerCity,freq, freq_breakfast  
-    )   
+            FROM (SELECT *, CONCAT(city,"_",user_id) AS UniqueIdPerCity FROM`efood-354312.main_assessment.orders`)
+            WHERE city in (
+              SELECT city#, COUNT(order_timestamp)
+              FROM `efood-354312.main_assessment.orders` 
+              GROUP BY city
+              HAVING COUNT(order_id) >= 1000 ) 
+            )
+            ORDER BY UniqueIdPerCity,freq, freq_breakfast  
+        )   
 GROUP BY city
 ORDER BY breakfast_orders DESC LIMIT 5
