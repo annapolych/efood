@@ -11,8 +11,18 @@ Query #2: SQL code
 
 Query - Part III: SQL code
 
-Part II - Analyze Users - Target Groups: Proposed Target Groups based on the Analyis presented in "Part III - Analyze Users" Dashboard 
+Part II - Analyze Users - Target Groups: Target Groups based on the Analyis presented in "Part III - Analyze Users" Dashboard 
 
 Part III - Visualization: My commnets for the Visualizations in Part III 
 
 "Part III - Analyze Users" Dashboard:  https://datastudio.google.com/reporting/7949a1f7-4817-49a8-8b93-887482870419/page/37LwC/edit
+
+
+
+References
+
+https://www.techtarget.com/searchdatamanagement/definition/RFM-analysis
+
+https://towardsdatascience.com/rfm-segmentation-using-quartiles-and-jenks-natural-breaks-924f4d8baee1
+
+https://www.barilliance.com/rfm-analysis/
