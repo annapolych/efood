@@ -11,7 +11,7 @@ Query #2: SQL code
 
 Query - Part III: SQL code
 
-Part II - Analyze Users- Target Groups: Proposed Target Groups based on the Analyis presented in "Part III - Analyze Users" Dashboard 
+Part II - Analyze Users - Target Groups: Proposed Target Groups based on the Analyis presented in "Part III - Analyze Users" Dashboard 
 
 Part III - Visualization: My commnets for the Visualizations in Part III 
 
