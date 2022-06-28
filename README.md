@@ -17,7 +17,7 @@ Part II - Analyze Users - Target Groups: Target Groups based on the Analyis pres
 
 "Part II - Analyze Users" Presentation: https://docs.google.com/presentation/d/1afBroUokUm47R5XAAp09vMSe22JezyKT-ywBDNyogXM/edit#slide=id.g1202944c728_0_7
 
-Part III - Visualization: My commnets for the Visualizations in Part III 
+"Part III - Visualization" : Presentation with my commnets for the Visualizations in Part III https://docs.google.com/presentation/d/1brIUgz01HhQxEtARgB-6iP4riXTncb67MhbOVbqGE24/edit?usp=sharing
 
 
 
