@@ -20,4 +20,4 @@ total as (
 SELECT top_10.city, top_10.Top10_Num_Orders/total.Total_Num_Orders AS Per_Orders_Top10
 FROM top_10
 left join total on top_10.city=total.city
-Order by city
+Order by city asc
