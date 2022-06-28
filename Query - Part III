@@ -3,31 +3,11 @@ ROUND(Percent_Rank() OVER (PARTITION BY cuisine ORDER BY Orders , Total_Value)*1
 ROUND(Percent_Rank() OVER (PARTITION BY cuisine ORDER BY Total_Value , Orders )*100,0) AS Monetary,
 
 FROM(
-
-SELECT cuisine, user_id , COUNT(order_id) AS Orders, SUM(amount) AS Total_Value, MAX(DATE(order_timestamp)) AS Last_Order_Date,
-
- FROM(
-
-SELECT *,    
-CASE WHEN breakfast_userid IS NOT NULL THEN ROW_NUMBER() OVER (PARTITION BY breakfast_userid ORDER BY city,breakfast_userid) ELSE null END AS freq_breakfast,
-CASE WHEN ROW_NUMBER() OVER (PARTITION BY breakfast_userid ORDER BY city,breakfast_userid) >3 THEN breakfast_userid ELSE null END AS breakfast_3freq,
-FROM(
-  SELECT *,
-    CASE when cuisine like "%Breakfast%" THEN amount else null end AS breakfast_amount,
-    CASE when cuisine like "%Breakfast%" THEN UniqueIdPerCity else null end AS breakfast_userid,
-    ROW_NUMBER() OVER (PARTITION BY UniqueIdPerCity ORDER BY city, UniqueIdPerCity) freq,
-    CASE WHEN ROW_NUMBER() OVER (PARTITION BY UniqueIdPerCity ORDER BY city,UniqueIdPerCity) >3 THEN UniqueIdPerCity ELSE null END AS efood_3freq,
-
-    FROM (SELECT *, CONCAT(city,"_",user_id) AS UniqueIdPerCity FROM`efood-354312.main_assessment.orders`)
-    WHERE city in (
-      SELECT city#, COUNT(order_timestamp)
-      FROM `efood-354312.main_assessment.orders` 
-      GROUP BY city
-      HAVING COUNT(order_id) >= 1000 ) 
-    )
-    ORDER BY freq desc, freq_breakfast  desc) 
-
+    SELECT cuisine, 
+    user_id, 
+    COUNT(order_id) AS Orders, 
+    SUM(amount) AS Total_Value, 
+    #MAX(DATE(order_timestamp)) AS Last_Order_Date,
+    FROM `efood-354312.main_assessment.orders`
     WHERE cuisine like "%Breakfast%"
-    GROUP BY user_id,cuisine
-
-)
+    GROUP BY user_id,cuisine)
