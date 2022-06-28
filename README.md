@@ -15,7 +15,9 @@ Part II - Analyze Users - Target Groups: Target Groups based on the Analyis pres
 
 Part III - Visualization: My commnets for the Visualizations in Part III 
 
-"Part III - Analyze Users" Dashboard:  https://datastudio.google.com/reporting/7949a1f7-4817-49a8-8b93-887482870419/page/37LwC/edit
+"Part III - Analyze Users" Dashboard: https://datastudio.google.com/reporting/7949a1f7-4817-49a8-8b93-887482870419/page/37LwC/edit
+
+"Part III - Analyze Users" Presentation: https://docs.google.com/presentation/d/1afBroUokUm47R5XAAp09vMSe22JezyKT-ywBDNyogXM/edit#slide=id.g1202944c728_0_7
 
 
 
