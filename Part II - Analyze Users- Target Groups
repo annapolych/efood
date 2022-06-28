@@ -1,0 +1,31 @@
+The target groups that could be eligible for loyalty are the following:
+
+Top-level of Loyalty - the IDs g in Order Segmentation and h in Order Values Segmentation.
+This group of users includes only 100 values in Frequency Metric and seems to group the most frequent users that could order more than one time per day. 
+Super Loyals that need to be awarded accordingly!
+
+Second Level of Loyalty - the IDs with g option in Order Segmentation and g,f,e, and d  in Order Values Segmentation.
+This group of users includes only 100 values in Frequency Metric but with a smaller Order Value. Super Loyals!
+
+Third Level of Loyalty - the IDs with f in Order Segmentation and all option in Order Values Segmentation.
+This group of users includes ID that orders almost every day. 
+They are definitely Loyals.
+
+Fourth Level of Loyalty - the IDs with e in Order Segmentation and g, h option in Order Values Segmentation. 
+
+Fifth Level of Loyalty - the IDs with d option in Order Segmentation and f, g, h option in Order Values Segmentation. 
+
+Sixth Level of Loyalty - the IDs with c option in Order Segmentation and e,f, g, h option in Order Values Segmentation. 
+
+Seventh Level of Loyalty - the IDs with b option in Order Segmentation and d,e,f, g, h option in Order Values Segmentation. 
+
+For the last Target Group, a more detailed selection of Frequency and Order Value could be applied using the Frequency and Monetary Filters.
+A more detailed selection could be applied to all Groups using the Frequency and Monetary Filters according to the Marketing Team plan.
+
+Finally, there are 3 users that range from 686 to 543 euros and 114 - 85 orders. It is a Target Group where the IDs probably correspond to companies and they should be further investigated.
+
+
+References
+https://www.techtarget.com/searchdatamanagement/definition/RFM-analysis
+https://towardsdatascience.com/rfm-segmentation-using-quartiles-and-jenks-natural-breaks-924f4d8baee1
+https://www.barilliance.com/rfm-analysis/
